@@ -79,3 +79,46 @@ if (typewriterText) {
     setTimeout(tick, 1150);
   }
 }
+
+
+const aboutTypewriterText = document.querySelector('#about-typewriter-text');
+
+if (aboutTypewriterText) {
+  const aboutSentence = 'I like solving practical problems with technology people can actually use.';
+
+  if (reduceMotion) {
+    aboutTypewriterText.textContent = aboutSentence;
+  } else {
+    let aboutIndex = aboutSentence.length;
+    let aboutDeleting = true;
+
+    const aboutTick = () => {
+      if (aboutDeleting) {
+        aboutIndex--;
+        aboutTypewriterText.textContent = aboutSentence.slice(0, Math.max(0, aboutIndex));
+
+        if (aboutIndex <= 0) {
+          aboutDeleting = false;
+          setTimeout(aboutTick, 700);
+          return;
+        }
+
+        setTimeout(aboutTick, 115);
+        return;
+      }
+
+      aboutIndex++;
+      aboutTypewriterText.textContent = aboutSentence.slice(0, aboutIndex);
+
+      if (aboutIndex >= aboutSentence.length) {
+        aboutDeleting = true;
+        setTimeout(aboutTick, 1800);
+        return;
+      }
+
+      setTimeout(aboutTick, 82);
+    };
+
+    setTimeout(aboutTick, 1800);
+  }
+}
