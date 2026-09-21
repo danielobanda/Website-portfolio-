@@ -96,6 +96,68 @@ h3{letter-spacing:-.03em}
   gap:54px;
   align-items:center;
 }
+
+.animated-hero-title{
+  min-height:2.15em;
+  display:flex;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  gap:.08em;
+}
+.typewriter-text{
+  background:linear-gradient(90deg,var(--text),#dffcf2 55%,var(--accent));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.typewriter-cursor{
+  display:inline-block;
+  width:.07em;
+  height:.92em;
+  margin-top:.08em;
+  border-radius:999px;
+  background:var(--accent);
+  animation:typewriterBlink .85s steps(1) infinite;
+}
+@keyframes typewriterBlink{
+  0%,48%{opacity:1}
+  49%,100%{opacity:0}
+}
+.hero-profile{
+  display:grid;
+  grid-template-columns:92px 1fr;
+  gap:14px;
+  align-items:center;
+  padding:10px;
+  margin-bottom:14px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:rgba(255,255,255,.025);
+}
+.hero-profile img{
+  width:92px;
+  height:112px;
+  object-fit:cover;
+  object-position:center 35%;
+  border-radius:14px;
+  display:block;
+  border:1px solid rgba(255,255,255,.08);
+}
+.hero-profile-meta{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+}
+.hero-profile-meta strong{
+  font:700 1rem 'Manrope',sans-serif;
+  color:var(--text);
+}
+.hero-profile-meta span{
+  margin-top:5px;
+  color:var(--muted);
+  font-size:.78rem;
+}
+
 .hero-copy{max-width:760px;color:#b6c2c7;font-size:1.14rem;margin:0 0 30px}
 .hero-actions,.contact-actions,.case-actions{display:flex;gap:12px;flex-wrap:wrap}
 .button{
@@ -334,6 +396,9 @@ h3{letter-spacing:-.03em}
   .about-grid,.contact-card{grid-template-columns:1fr}
 }
 @media(max-width:680px){
+  .animated-hero-title{min-height:2.55em}
+  .hero-profile{grid-template-columns:78px 1fr}
+  .hero-profile img{width:78px;height:96px}
   .wrap,.site-header{width:min(calc(100% - 28px),var(--max))}
   .site-header{height:72px}
   .menu-btn{display:block}
@@ -372,6 +437,7 @@ h3{letter-spacing:-.03em}
   .footer p{grid-column:1}
 }
 @media(prefers-reduced-motion:reduce){
+  .typewriter-cursor{display:none}
   *{scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none;transition:none}
   .button,.project,.current-project{transition:none}
