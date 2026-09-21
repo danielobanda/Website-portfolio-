@@ -6,21 +6,10 @@ menuBtn?.addEventListener('click', () => {
   menuBtn.setAttribute('aria-expanded', String(open));
 });
 
-nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-  nav.classList.remove('open');
-  menuBtn?.setAttribute('aria-expanded', 'false');
-}));
-
-const filters = document.querySelectorAll('.filter');
-const cards = document.querySelectorAll('.project-card');
-filters.forEach(button => {
-  button.addEventListener('click', () => {
-    filters.forEach(b => b.classList.remove('active'));
-    button.classList.add('active');
-    const value = button.dataset.filter;
-    cards.forEach(card => {
-      card.classList.toggle('hidden', value !== 'all' && card.dataset.category !== value);
-    });
+nav?.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menuBtn?.setAttribute('aria-expanded', 'false');
   });
 });
 
@@ -34,4 +23,6 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.08 });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-document.querySelector('#year').textContent = new Date().getFullYear();
+
+const year = document.querySelector('#year');
+if (year) year.textContent = new Date().getFullYear();
