@@ -346,6 +346,21 @@ h3{letter-spacing:-.03em}
 .capability p{margin:0;color:#9aa8ad;font-size:.9rem}
 .capability small{margin-top:auto;padding-top:25px;color:#708087}
 .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start}
+
+.about-typewriter-title{
+  min-height:2.35em;
+  display:flex;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  gap:.08em;
+}
+.about-typewriter-text{
+  color:var(--text);
+}
+.about-cursor{
+  margin-top:.08em;
+}
+
 .about-intro h2{font-size:clamp(2.7rem,4.6vw,5rem)}
 .about-body>p{margin-top:0;color:#aebbc0;font-size:1.03rem}
 .credentials{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px}
@@ -396,6 +411,7 @@ h3{letter-spacing:-.03em}
   .about-grid,.contact-card{grid-template-columns:1fr}
 }
 @media(max-width:680px){
+  .about-typewriter-title{min-height:3.2em}
   .animated-hero-title{min-height:2.55em}
   .hero-profile{grid-template-columns:78px 1fr}
   .hero-profile img{width:78px;height:96px}
